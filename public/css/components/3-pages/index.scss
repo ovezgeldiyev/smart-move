@@ -1,0 +1,471 @@
+.intro {
+  position: relative;
+  margin-bottom: 70px;
+  &::before {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    content: "";
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(14, 14, 14, 1) 100%
+    );
+  }
+  .auto__container {
+    max-width: 1640px;
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    .stars {
+      background: #000 url("../images/stars.png") repeat;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: block;
+      z-index: 0;
+    }
+
+    .twinkling {
+      width: 10000px;
+      height: 100%;
+      background: transparent url("../images/twinkling.png") repeat;
+      background-size: 1000px 1000px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+
+      -moz-animation: move-background 70s linear infinite;
+      -ms-animation: move-background 70s linear infinite;
+      -o-animation: move-background 70s linear infinite;
+      -webkit-animation: move-background 70s linear infinite;
+      animation: move-background 70s linear infinite;
+    }
+    img {
+      @include fullImage;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+  &__inner {
+    text-align: center;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    padding: 150px 0;
+    box-sizing: border-box;
+    h1 {
+      width: 100%;
+      max-width: 1536px;
+      margin: 0 auto;
+    }
+  }
+}
+// 1180px
+@mixin intro-xlg-xxlg {
+  .intro {
+    &__inner {
+      padding: 100px 0;
+    }
+  }
+}
+// 930px
+@mixin intro-md-lg {
+  .intro {
+    &__inner {
+      padding: 70px 0;
+    }
+  }
+}
+// 540px
+@mixin intro-xsm-sm {
+  .intro {
+    margin-bottom: 40px;
+    &::before {
+      height: 40px;
+    }
+    &__inner {
+      padding: 50px 0;
+    }
+  }
+}
+.news {
+  position: relative;
+  padding: 15px 0;
+  &__inner {
+    &-slider {
+      margin-bottom: 15px !important;
+    }
+    .slick {
+      &-track {
+        display: flex !important;
+        max-width: 100% !important;
+      }
+      &-slide {
+        height: unset !important;
+        width: auto !important;
+      }
+      &-list {
+        overflow: visible !important;
+      }
+    }
+  }
+  &Item {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: auto !important;
+    overflow: hidden;
+    color: $white2;
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 400;
+    font-family: $ibmPLex;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0 10px;
+    text-transform: uppercase;
+  }
+}
+// 540px
+@mixin news-xsm-sm {
+  .news {
+    padding: 10px 0;
+    pointer-events: none !important;
+    user-select: none !important;
+    &__inner {
+      &-slider {
+        margin-bottom: 8px !important;
+      }
+    }
+    &Item {
+      p {
+        font-size: 15px;
+      }
+    }
+    .marquee {
+      margin-bottom: 4px;
+      a {
+        font-size: 15px;
+      }
+    }
+  }
+}
+.contr {
+  padding: 90px 0;
+  background-color: $main;
+  position: relative;
+  &__inner {
+    &-title {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    &-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -10px;
+    }
+  }
+  &Item {
+    width: calc(20% - 20px);
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $main2;
+    border-radius: 5px;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      @include transition;
+      height: 100%;
+      background-image: radial-gradient(
+        800px circle at var(--mouse-x) var(--mouse-y),
+        hsla(0, 0%, 100%, 0.06),
+        transparent 40%
+      );
+      z-index: 10;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
+// 1180px
+@mixin contr-xlg-xxlg {
+  .contr {
+    padding: 70px 0;
+    &__inner {
+      &-row {
+        margin: 0 -7px;
+      }
+    }
+    &Item {
+      width: calc(20% - 14px);
+      margin: 7px;
+    }
+  }
+}
+// 1024px
+@mixin contr-lg-xlg {
+  .contr {
+    padding: 60px 0;
+    &Item {
+      width: calc(25% - 14px);
+    }
+  }
+}
+// 750px
+@mixin contr-sm-md {
+  .contr {
+    padding: 50px 0;
+    &Item {
+      width: calc(33.3% - 14px);
+    }
+  }
+}
+// 540px
+@mixin contr-xsm-sm {
+  .contr {
+    padding: 30px 0;
+    &__inner {
+      &-row {
+        margin: 0 -4px;
+      }
+    }
+    &Item {
+      width: calc(50% - 8px);
+      margin: 4px;
+    }
+  }
+}
+.mission {
+  padding: 50px 0;
+  &__inner {
+    border-bottom: 1px solid $white2;
+    &-title {
+      padding: 20px 0;
+      border-top: 1px solid $white2;
+      border-bottom: 1px solid $white2;
+      text-align: center;
+    }
+    &-text {
+      padding: 120px 0;
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+      font-family: $ibmPLex;
+      color: $gray;
+    }
+  }
+}
+// 1180px
+@mixin mission-xlg-xxlg {
+  .mission {
+    padding: 35px 0;
+    &__inner {
+      &-text {
+        padding: 90px 0;
+      }
+    }
+  }
+}
+// 930px
+@mixin mission-md-lg {
+  .mission {
+    padding: 24px 0;
+    &__inner {
+      &-title {
+        padding: 14px 0;
+      }
+      &-text {
+        padding: 60px 0;
+      }
+    }
+  }
+}
+// 540px
+@mixin mission-xsm-sm {
+  .mission {
+    padding: 20px 0;
+    &__inner {
+      border-width: 0.5px;
+      &-title {
+        border-width: 0.5px;
+      }
+      &-text {
+        padding: 35px 0;
+      }
+    }
+  }
+}
+.stake {
+  padding: 50px 0 100px;
+  &__inner {
+    &-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    &-info {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &Item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin: 0;
+    }
+    &__row {
+      width: calc(78% - 8px);
+      max-width: 520px;
+      display: flex;
+      justify-content: space-between;
+    }
+    h4 {
+      color: $gray;
+      width: calc(22% - 8px);
+    }
+    .button {
+      width: calc(50% - 8px);
+      max-width: 250px;
+      input {
+        background: transparent;
+      }
+      &.big {
+        width: 100%;
+        max-width: unset;
+      }
+    }
+  }
+}
+// 1180px
+@mixin stake-xlg-xxlg {
+  .stake {
+    padding: 40px 0 70px;
+  }
+}
+// 930px
+@mixin stake-md-lg {
+  .stake {
+    padding: 24px 0 48px;
+    &__inner {
+      &-title {
+        margin-bottom: 35px;
+      }
+    }
+  }
+}
+// 540px
+@mixin stake-xsm-sm {
+  .stake {
+    padding: 20px 0 40px;
+    &__inner {
+      &-title {
+        margin-bottom: 24px;
+      }
+    }
+    &Item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      &__row {
+        width: 100%;
+      }
+      h4 {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+.support {
+  padding: 100px 0;
+  &__inner {
+    &-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    &-row {
+      display: flex;
+      justify-content: space-between;
+      max-width: 650px;
+      margin: 0 auto;
+      a {
+        width: calc(33.3% - 6px);
+        max-width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+// 1180px
+@mixin support-xlg-xxlg {
+  .support {
+    padding: 70px 0;
+    &__inner {
+      &-title {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+// 930px
+@mixin support-md-lg {
+  .support {
+    padding: 40px 0;
+    &__inner {
+      &-title {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+// 540px
+@mixin support-xsm-sm {
+  .support {
+    padding: 35px 0 20px;
+    &__inner {
+      &-title {
+        margin-bottom: 10px;
+      }
+      &-row {
+        a {
+          width: 33.3%;
+        }
+      }
+    }
+  }
+}

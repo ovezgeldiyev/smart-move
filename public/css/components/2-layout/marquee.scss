@@ -1,0 +1,94 @@
+.marquee-container:after {
+  content: ".";
+  display: block;
+  height: 0px;
+  visibility: hidden;
+  clear: both;
+}
+.marquee {
+  width: 100%;
+  float: left;
+  margin-bottom: 15px;
+  a {
+    text-transform: uppercase;
+    color: $white2;
+    font-size: 20px;
+    line-height: 120%;
+    font-weight: 400;
+    font-family: $ibmPLex;
+    margin: 0 5px;
+  }
+}
+.marquee:before {
+  position: static;
+  display: block;
+  content: ".";
+  float: left;
+
+  text-indent: -999em;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.marquee-text {
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+
+  width: auto;
+
+  text-align: center;
+
+  pointer-events: none;
+}
+
+.marquee-text .list {
+  display: inline-block;
+  padding-left: 100%;
+
+  animation: marquee 120s linear infinite;
+  animation-delay: -60s;
+}
+.marquee-text.duplicate .list {
+  animation-delay: 0s;
+}
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+.marquee.slower .marquee-text.marquee-text .list {
+  animation: marquee 90s linear infinite;
+  animation-delay: -45s;
+}
+.marquee.slower .marquee-text.duplicate .list {
+  animation-delay: 0s;
+}
+.marquee.ltr .marquee-text .list {
+  animation: marquee-ltr 120s linear infinite;
+}
+.marquee.ltr .marquee-text.duplicate .list {
+  animation-delay: -60s;
+}
+@keyframes marquee-ltr {
+  0% {
+    transform: translate(-100%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.marquee-container:hover * {
+  -webkit-animation-play-state: paused !important;
+  animation-play-state: paused !important;
+}
+.marquee-text a {
+  text-decoration: none;
+  pointer-events: auto;
+  cursor: pointer;
+}

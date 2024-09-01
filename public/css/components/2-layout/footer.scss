@@ -1,0 +1,64 @@
+.footer {
+  padding: 70px 0;
+  border-top: 1px solid $white2;
+  &__inner {
+    &-row {
+      max-width: 415px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    a {
+      color: $white2;
+    }
+  }
+  &Item {
+    width: calc(50% - 5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+    &.big {
+      h4 {
+        font-family: $ibmPLex;
+        font-weight: 300;
+        text-transform: none;
+      }
+    }
+    h4 {
+      font-weight: 700;
+    }
+  }
+}
+// 1180px
+@mixin footer-xlg-xxlg {
+  .footer {
+    padding: 50px 0;
+  }
+}
+// 930px
+@mixin footer-md-lg {
+  .footer {
+    padding: 40px 0;
+  }
+}
+// 750px
+@mixin footer-sm-md {
+  .footer {
+    padding: 30px 0;
+  }
+}
+// 540px
+@mixin footer-xsm-sm {
+  .footer {
+    padding: 20px 0 30px;
+    &__inner {
+      &-row {
+        max-width: 300px;
+      }
+    }
+    &Item {
+      padding: 12px;
+    }
+  }
+}
